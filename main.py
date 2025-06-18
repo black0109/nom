@@ -46,39 +46,33 @@ style_preference = st.multiselect(
     ["러블리", "시크", "내추럴", "댄디", "트렌디"]
 )
 
-# 스타일 데이터 (Imgur의 안정적인 샘플 링크 사용)
+# 스타일 데이터 (이미지 없이 스타일 이름과 태그만 포함)
 style_db = {
     "여성": [
         {
             "name": "러블리 웨이브",
-            "image": "https://i.imgur.com/sJ8v1Hk.jpg",
             "tags": ["러블리", "내추럴"]
         },
         {
             "name": "시크 단발",
-            "image": "https://i.imgur.com/Pl9MURX.jpg",
             "tags": ["시크", "트렌디"]
         },
         {
             "name": "긴 생머리",
-            "image": "https://i.imgur.com/gAMKO5z.jpg",
             "tags": ["내추럴", "러블리"]
         }
     ],
     "남성": [
         {
             "name": "댄디컷",
-            "image": "https://i.imgur.com/5c1RfR7.jpg",
             "tags": ["댄디", "내추럴"]
         },
         {
             "name": "투블럭 스타일",
-            "image": "https://i.imgur.com/nxWv9qU.jpg",
             "tags": ["트렌디", "시크"]
         },
         {
             "name": "리젠트컷",
-            "image": "https://i.imgur.com/xzCPQUG.jpg",
             "tags": ["댄디", "시크"]
         }
     ]
@@ -99,7 +93,7 @@ else:
     if matched_styles:
         for style in matched_styles:
             st.markdown('<div class="recommend-box">', unsafe_allow_html=True)
-            st.image(style["image"], caption=style["name"], use_column_width=True)
+            st.markdown(f"**스타일 이름**: {style['name']}")
             st.markdown(f"**스타일 태그**: {' · '.join(style['tags'])}")
             st.markdown('</div>', unsafe_allow_html=True)
     else:
@@ -108,4 +102,5 @@ else:
 # 푸터
 st.markdown("---")
 st.markdown("© 2025 ✂️ HairStyle Recommender by YourName", unsafe_allow_html=True)
+
 
